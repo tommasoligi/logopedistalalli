@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contatti · Logopedista Lalli</title>
+<meta name="description" content="Come contattare lo studio di logopedia.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Principale">
+      <a class="logo" href="index.html">Logopedista Lalli</a>
+      <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu"><li><a href="index.html">Home</a></li><li><a href="servizi.html">Servizi</a></li><li><a href="chi-sono.html">Chi sono</a></li><li><a href="faq.html">Domande</a></li><li><a href="contatti.html" class="active" aria-current="page">Contatti</a></li></ul>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap page-head"><h1>Contatti</h1><p>Scrivimi o chiamami per una prima informazione.</p></div>
+<section style="padding-top:8px"><div class="wrap contact">
+  <div class="info">
+    <p><strong>Studio</strong><br>[Via, numero civico, città]</p>
+    <p><strong>Telefono</strong><br><a href="tel:+390000000000">[+39 000 000 0000]</a></p>
+    <p><strong>Email</strong><br><a href="mailto:info@esempio.it">[info@esempio.it]</a></p>
+    <p><strong>Orari</strong><br>[Lun–Ven, 9:00–18:00]</p>
+    <p><strong>Instagram</strong><br><a href="https://www.instagram.com/logopedistalalli/" target="_blank" rel="noopener">@logopedistalalli</a></p>
+  </div>
+  <form id="form" novalidate>
+    <div><label for="nome">Nome</label><input id="nome" required autocomplete="name"></div>
+    <div><label for="mail">Email</label><input id="mail" type="email" required autocomplete="email"></div>
+    <div><label for="tema">Motivo del contatto</label><select id="tema"><option>Linguaggio</option><option>Apprendimento</option><option>Voce</option><option>Deglutizione</option><option>Altro</option></select></div>
+    <div><label for="testo">Messaggio</label><textarea id="testo" required></textarea></div>
+    <button class="btn" type="submit">Invia messaggio</button>
+    <p id="msg" role="status"></p>
+  </form>
+</div></section>
+
+</main>
+<footer><div class="wrap">© <span id="y"></span> [Nome Cognome] · Logopedista · P.IVA [00000000000] · <a href="contatti.html">Contatti</a> · <a href="https://www.instagram.com/logopedistalalli/" target="_blank" rel="noopener">Instagram</a></div></footer>
+<script src="script.js" defer></script>
+</body>
+</html>
