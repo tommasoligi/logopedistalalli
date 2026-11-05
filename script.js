@@ -30,3 +30,34 @@ if(formEl){
       });
   });
 }
+
+// Pulsante WhatsApp: scivola lungo il bordo destro seguendo lo scorrimento della pagina
+(function(){
+  var wa = document.querySelector('.wa-float');
+  if(!wa) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = 0, target = 0, raf = null;
+  function calc(){
+    var size = wa.offsetHeight || 58, margin = 16, topMin = 84;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 1;
+    var bottom = window.innerHeight - size - margin;
+    target = topMin + p * Math.max(0, bottom - topMin);
+  }
+  function step(){
+    cur += (target - cur) * 0.12;
+    if(Math.abs(target - cur) < 0.5){ cur = target; raf = null; }
+    wa.style.top = cur + 'px';
+    if(raf !== null) raf = requestAnimationFrame(step);
+  }
+  function update(){
+    calc();
+    if(reduce){ cur = target; wa.style.top = cur + 'px'; return; }
+    if(raf === null) raf = requestAnimationFrame(step);
+  }
+  wa.classList.add('wa-follow');
+  calc(); cur = target; wa.style.top = cur + 'px';
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+})();
